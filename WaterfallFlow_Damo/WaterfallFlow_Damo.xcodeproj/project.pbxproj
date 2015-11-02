@@ -14,6 +14,9 @@
 		D9CC4C221BE6E61400048F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CC4C201BE6E61400048F41 /* LaunchScreen.storyboard */; };
 		D9CC4C2E1BE6EBCE00048F41 /* YYClothesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CC4C2D1BE6EBCE00048F41 /* YYClothesViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D9CC4C311BE6EC0800048F41 /* YYWaterfallFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CC4C301BE6EC0800048F41 /* YYWaterfallFlowLayout.m */; settings = {ASSET_TAGS = (); }; };
+		D9DCC66D1BE7419A00088472 /* clothes.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9DCC66C1BE7419A00088472 /* clothes.plist */; settings = {ASSET_TAGS = (); }; };
+		D9DCC6701BE7420500088472 /* YYClothes.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DCC66F1BE7420500088472 /* YYClothes.m */; settings = {ASSET_TAGS = (); }; };
+		D9DCC6731BE7431100088472 /* YYClothesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DCC6721BE7431100088472 /* YYClothesViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E70DFEAB814504F91234A086 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B22F585EF38F5DE1DFF76CD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,11 @@
 		D9CC4C2D1BE6EBCE00048F41 /* YYClothesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClothesViewController.m; sourceTree = "<group>"; };
 		D9CC4C2F1BE6EC0800048F41 /* YYWaterfallFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWaterfallFlowLayout.h; sourceTree = "<group>"; };
 		D9CC4C301BE6EC0800048F41 /* YYWaterfallFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWaterfallFlowLayout.m; sourceTree = "<group>"; };
+		D9DCC66C1BE7419A00088472 /* clothes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = clothes.plist; sourceTree = "<group>"; };
+		D9DCC66E1BE7420500088472 /* YYClothes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClothes.h; sourceTree = "<group>"; };
+		D9DCC66F1BE7420500088472 /* YYClothes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClothes.m; sourceTree = "<group>"; };
+		D9DCC6711BE7431100088472 /* YYClothesViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClothesViewCell.h; sourceTree = "<group>"; };
+		D9DCC6721BE7431100088472 /* YYClothesViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClothesViewCell.m; sourceTree = "<group>"; };
 		F53FA707E2C4E7CF588C6927 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +104,7 @@
 		D9CC4C121BE6E61400048F41 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D9CC4C1B1BE6E61400048F41 /* Main.storyboard */,
+				D9DCC66C1BE7419A00088472 /* clothes.plist */,
 				D9CC4C1E1BE6E61400048F41 /* Assets.xcassets */,
 				D9CC4C201BE6E61400048F41 /* LaunchScreen.storyboard */,
 				D9CC4C131BE6E61400048F41 /* main.m */,
@@ -108,6 +116,8 @@
 		D9CC4C291BE6EB7900048F41 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D9DCC66A1BE7415600088472 /* Model */,
+				D9DCC66B1BE7415600088472 /* View */,
 				D9CC4C2A1BE6EB7900048F41 /* Controller */,
 				D9CC4C2B1BE6EB7900048F41 /* Tools */,
 			);
@@ -121,6 +131,7 @@
 				D9CC4C301BE6EC0800048F41 /* YYWaterfallFlowLayout.m */,
 				D9CC4C2C1BE6EBCE00048F41 /* YYClothesViewController.h */,
 				D9CC4C2D1BE6EBCE00048F41 /* YYClothesViewController.m */,
+				D9CC4C1B1BE6E61400048F41 /* Main.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,6 +141,24 @@
 			children = (
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		D9DCC66A1BE7415600088472 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9DCC66E1BE7420500088472 /* YYClothes.h */,
+				D9DCC66F1BE7420500088472 /* YYClothes.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9DCC66B1BE7415600088472 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9DCC6711BE7431100088472 /* YYClothesViewCell.h */,
+				D9DCC6721BE7431100088472 /* YYClothesViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9CC4C221BE6E61400048F41 /* LaunchScreen.storyboard in Resources */,
+				D9DCC66D1BE7419A00088472 /* clothes.plist in Resources */,
 				D9CC4C1F1BE6E61400048F41 /* Assets.xcassets in Resources */,
 				D9CC4C1D1BE6E61400048F41 /* Main.storyboard in Resources */,
 			);
@@ -257,8 +287,10 @@
 			files = (
 				D9CC4C311BE6EC0800048F41 /* YYWaterfallFlowLayout.m in Sources */,
 				D9CC4C2E1BE6EBCE00048F41 /* YYClothesViewController.m in Sources */,
+				D9DCC6701BE7420500088472 /* YYClothes.m in Sources */,
 				D9CC4C171BE6E61400048F41 /* AppDelegate.m in Sources */,
 				D9CC4C141BE6E61400048F41 /* main.m in Sources */,
+				D9DCC6731BE7431100088472 /* YYClothesViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +303,7 @@
 				D9CC4C1C1BE6E61400048F41 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		D9CC4C201BE6E61400048F41 /* LaunchScreen.storyboard */ = {

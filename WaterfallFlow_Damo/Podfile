@@ -2,5 +2,7 @@
 #tform :ios, '6.1'
 pod 'SDWebImage', '~>3.7'
 pod 'MJExtension'
+pod 'MJRefresh'
 
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore

@@ -8,32 +8,73 @@
 
 #import "YYClothesViewController.h"
 #import "YYWaterfallFlowLayout.h"
+#import <MJExtension.h>
+#import <MJRefresh.h>
 
-@interface YYClothesViewController ()
+#import "YYClothes.h"
+#import "YYClothesViewCell.h"
+
+@interface YYClothesViewController ()<YYWaterfallFlowLayoutDelegate>
+
+@property (nonatomic, strong) NSMutableArray *clothes;
+
 
 @end
 
 @implementation YYClothesViewController
-
 static NSString * const reuseIdentifier = @"ClothesCell";
+
+- (NSMutableArray *)clothes {
+    if (!_clothes) {
+        _clothes = [[NSMutableArray alloc] init];
+    }
+    return _clothes;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    [self prepareLayout];
+    [self uploadData];
+    [self refurbishData];
+    
+}
+- (void)prepareLayout {
     YYWaterfallFlowLayout *layout = [[YYWaterfallFlowLayout alloc] init];
+    
+    layout.delegate = self;
     self.collectionView.collectionViewLayout = layout;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+}
+- (void)uploadData {
+    NSArray *tempArray = [YYClothes objectArrayWithFilename:@"clothes.plist"];
+    [self.clothes addObjectsFromArray:tempArray];
+}
+- (void)refurbishData {
+    
+}
+
+
+
+#pragma mark - <YYWaterfallFlowLayoutDelegate>
+- (CGFloat)waterfallLayout:(YYWaterfallFlowLayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexPath withItemWith:(CGFloat)wight {
+    YYClothes *clother = self.clothes[indexPath.item];
+    return clother.h * wight / clother.w;
+}
+- (NSUInteger)columnCountInWaterfallFlowLayout:(YYWaterfallFlowLayout *)layout {
+    return 3;
 }
 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 20;
+    return self.clothes.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    cell.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+    YYClothesViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+   
+    cell.clothe = self.clothes[indexPath.item];
     
     return cell;
 }

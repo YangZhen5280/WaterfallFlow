@@ -20,6 +20,12 @@ static const CGFloat YYDefaultColumnCount = 3;
 @property (nonatomic, strong) NSMutableArray *columnMaxYarray;
 @property (nonatomic, strong) NSMutableArray *attrsArray;
 
+// 声明get方法
+- (CGFloat)rowSpacing;
+- (CGFloat)columnSpacing;
+- (UIEdgeInsets)edgeInsets;
+- (NSUInteger)columnCount;
+
 @end
 @implementation YYWaterfallFlowLayout
 
@@ -101,8 +107,9 @@ static const CGFloat YYDefaultColumnCount = 3;
     }
     CGFloat totalColumnSpacing = (YYDefaultColumnCount - 1) * YYDefaultColMargin;
     CGFloat width = (YYCollectionViewWidth - YYDefaultEdginsets.left - YYDefaultEdginsets.right - totalColumnSpacing) / YYDefaultColumnCount;
-#warning TODO tempHeight
-    CGFloat height = 50 + arc4random_uniform(150);
+
+    CGFloat height = [self.delegate waterfallLayout:self heightForItemAtIndexPath:indexPath withItemWith:width];
+    
     CGFloat x = YYDefaultEdginsets.left + destColumnindex * (width + YYDefaultColMargin);
     CGFloat y = destColumnMaxY + YYDefaultRowMargin;
    
@@ -111,18 +118,33 @@ static const CGFloat YYDefaultColumnCount = 3;
     
     return attrs;
 }
+#pragma mark - 代理方法
+- (CGFloat)rowSpacing {
+    if ([self.delegate respondsToSelector:@selector(rowSpacingInWaterfallFlowLayout:)]) {
+        return [self.delegate rowSpacingInWaterfallFlowLayout:self];
+    }
+    return YYDefaultRowMargin;
+}
 
+- (CGFloat)columnSpacing {
+    if ([self.delegate respondsToSelector:@selector(columnSpacingInWaterfallFlowLayout:)]) {
+        return [self.delegate columnSpacingInWaterfallFlowLayout:self];
+    }
+    return YYDefaultColMargin;
+}
 
+- (UIEdgeInsets)edgeInsets {
+    if ([self.delegate respondsToSelector:@selector(edgeInsetsInWaterfallFlowLayout:)]) {
+        return [self.delegate edgeInsetsInWaterfallFlowLayout:self];
+    }
+    return YYDefaultEdginsets;
+}
 
-
-
-
-
-
-
-
-
-
-
+- (NSUInteger)columnCount {
+    if ([self.delegate respondsToSelector:@selector(columnCountInWaterfallFlowLayout:)]) {
+        return [self.delegate columnCountInWaterfallFlowLayout:self];
+    }
+    return YYDefaultColumnCount;
+}
 
 @end
