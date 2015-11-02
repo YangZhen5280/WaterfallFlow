@@ -1,11 +1,116 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VyG-Zl-Vs5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Pi-Jf-lSt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Clothes View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="JcH-5j-Ri2">
+            <objects>
+                <navigationController id="0Pi-Jf-lSt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DD4-jL-bDD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GoR-Fo-YJT" kind="relationship" relationship="rootViewController" id="rcr-2A-FZX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1B-pw-HmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1029" y="240"/>
+        </scene>
+        <!--蘑菇姐-->
+        <scene sceneID="TKH-3d-U2b">
+            <objects>
+                <viewController id="GoR-Fo-YJT" customClass="YYViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ztf-Ku-ahF"/>
+                        <viewControllerLayoutGuide type="bottom" id="GWh-lj-5dK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eTd-Zv-irL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xB6-X1-3PZ">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Zce-l5-4ZA"/>
+                                </constraints>
+                                <items/>
+                            </tabBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GT-KS-RGj">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9R-Qf-g4d">
+                                        <rect key="frame" x="200" y="144" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="9Om-ah-CRT"/>
+                                            <constraint firstAttribute="height" constant="200" id="wAe-eb-x66"/>
+                                        </constraints>
+                                        <state key="normal" image="123.png"/>
+                                        <connections>
+                                            <segue destination="VyG-Zl-Vs5" kind="push" id="KKu-6K-mtA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="k9R-Qf-g4d" firstAttribute="centerY" secondItem="8GT-KS-RGj" secondAttribute="centerY" id="b0z-l2-gcN"/>
+                                    <constraint firstItem="k9R-Qf-g4d" firstAttribute="centerX" secondItem="8GT-KS-RGj" secondAttribute="centerX" id="ljg-z9-yHa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xB6-X1-3PZ" secondAttribute="trailing" id="4VZ-5b-gH1"/>
+                            <constraint firstItem="xB6-X1-3PZ" firstAttribute="leading" secondItem="eTd-Zv-irL" secondAttribute="leading" id="5iY-Qt-eHO"/>
+                            <constraint firstItem="xB6-X1-3PZ" firstAttribute="top" secondItem="8GT-KS-RGj" secondAttribute="bottom" id="NQg-yk-Jm1"/>
+                            <constraint firstItem="8GT-KS-RGj" firstAttribute="top" secondItem="ztf-Ku-ahF" secondAttribute="bottom" id="agS-ne-cNu"/>
+                            <constraint firstItem="8GT-KS-RGj" firstAttribute="leading" secondItem="eTd-Zv-irL" secondAttribute="leading" id="g7V-Io-TQi"/>
+                            <constraint firstAttribute="bottom" secondItem="xB6-X1-3PZ" secondAttribute="bottom" id="oeZ-iM-BgU"/>
+                            <constraint firstAttribute="trailing" secondItem="8GT-KS-RGj" secondAttribute="trailing" id="yRQ-IO-iRo"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="蘑菇姐" id="HcO-uD-1J1">
+                        <barButtonItem key="rightBarButtonItem" title="登录" id="Mhp-BM-iqR">
+                            <connections>
+                                <segue destination="WZM-JW-uA9" kind="push" id="K2j-Pp-wY6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageButton" destination="k9R-Qf-g4d" id="1R3-dj-eR0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ib-Hp-hQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-191" y="240"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DS4-YP-dxU">
+            <objects>
+                <viewController id="WZM-JW-uA9" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ylU-Cd-1zl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Imj-SC-0gx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g1z-YA-Dkq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D5T-Za-vPN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4C8-MK-saG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="-559"/>
+        </scene>
+        <!--新品特卖-->
         <scene sceneID="Qri-YM-rnu">
             <objects>
                 <collectionViewController id="VyG-Zl-Vs5" customClass="YYClothesViewController" sceneMemberID="viewController">
@@ -20,7 +125,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClothesCell" id="4si-hz-Sem" customClass="YYClothesViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                <rect key="frame" x="0.0" y="64" width="200" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
@@ -62,10 +167,14 @@
                             <outlet property="delegate" destination="VyG-Zl-Vs5" id="iyv-Aa-uzv"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" title="新品特卖" id="63l-h1-yY9"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxG-hz-wiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="302" y="403"/>
+            <point key="canvasLocation" x="432" y="240"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="123.png" width="566" height="566"/>
+    </resources>
 </document>
