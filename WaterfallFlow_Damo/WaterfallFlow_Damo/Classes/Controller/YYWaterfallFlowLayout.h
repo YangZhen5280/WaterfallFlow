@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  YYWaterfallFlowLayout.h
 //  WaterfallFlow_Damo
 //
 //  Created by 杨振 on 15/11/2.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface YYWaterfallFlowLayout : UICollectionViewLayout
 
 @end
-
