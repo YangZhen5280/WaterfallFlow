@@ -17,7 +17,7 @@
 @interface YYClothesViewController ()<YYWaterfallFlowLayoutDelegate>
 
 @property (nonatomic, strong) NSMutableArray *clothes;
-
+@property (nonatomic, strong) NSArray *tempArray;
 
 @end
 
@@ -52,6 +52,25 @@ static NSString * const reuseIdentifier = @"ClothesCell";
 }
 - (void)refurbishData {
     
+    __weak typeof(self) weakSelf = self;
+    
+    self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        NSArray *tempArray = [YYClothes objectArrayWithFilename:@"clothes.plist"];
+        [weakSelf.clothes insertObjects:tempArray atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, tempArray.count)]];
+        
+        [weakSelf.collectionView reloadData];
+        [self.collectionView.header endRefreshing];
+    }];
+    
+    self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+        NSArray *tempArray = [YYClothes objectArrayWithFilename:@"clothes.plist"];
+        [weakSelf.clothes addObjectsFromArray:tempArray];
+      
+        [weakSelf.collectionView reloadData];
+        [weakSelf.collectionView.footer endRefreshing];
+    }];
 }
 
 
