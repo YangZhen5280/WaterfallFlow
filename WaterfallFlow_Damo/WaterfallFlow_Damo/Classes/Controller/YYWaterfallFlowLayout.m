@@ -11,7 +11,7 @@
 #define YYCollectionViewWidth self.collectionView.frame.size.width
 
 static const CGFloat YYDefaultRowMargin = 10;
-static const CGFloat YYDefaultColMargin = 20;
+static const CGFloat YYDefaultColMargin = 15;
 static const UIEdgeInsets YYDefaultEdginsets = {10, 10, 10, 10};
 static const CGFloat YYDefaultColumnCount = 3;
 
@@ -30,14 +30,14 @@ static const CGFloat YYDefaultColumnCount = 3;
     return _columnMaxYarray;
 }
 
-#pragma mark - 实现内部方法
+#pragma mark - 实现内部方法（重置每一列的最大y坐标）
 - (void)prepareLayout {
     [super prepareLayout];
+    
     [self.columnMaxYarray removeAllObjects];
     for (int i = 0; i< YYDefaultColumnCount; i ++) {
         [self.columnMaxYarray addObject:@(0)];
     }
-
 }
 
 /**
@@ -49,6 +49,7 @@ static const CGFloat YYDefaultColumnCount = 3;
     
     NSInteger count = [self.collectionView numberOfItemsInSection:0];
     for (int i = 0; i< count; i ++) {
+       
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         UICollectionViewLayoutAttributes *attrs = [self layoutAttributesForItemAtIndexPath:indexPath];
         
@@ -63,9 +64,24 @@ static const CGFloat YYDefaultColumnCount = 3;
     
     UICollectionViewLayoutAttributes *attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
-    
-    attrs.center = CGPointMake(100, 100);
-    attrs.size = CGSizeMake(100, 150);
+    CGFloat destColumnMaxY = [self.columnMaxYarray[0] doubleValue];
+    NSInteger destColumnindex = 0;
+    for (int i = 0; i< self.columnMaxYarray.count; i ++) {
+        CGFloat columnMaxY = [self.columnMaxYarray[i] doubleValue];
+        if (columnMaxY < destColumnMaxY) {
+            destColumnMaxY = columnMaxY;
+            destColumnindex = i;
+        }
+    }
+    CGFloat totalColumnSpacing = (YYDefaultColumnCount - 1) * YYDefaultColMargin;
+    CGFloat width = (YYCollectionViewWidth - YYDefaultEdginsets.left - YYDefaultEdginsets.right - totalColumnSpacing) / YYDefaultColumnCount;
+#warning TODO tempHeight
+    CGFloat height = 50 + arc4random_uniform(150);
+    CGFloat x = YYDefaultEdginsets.left + destColumnindex * (width + YYDefaultColMargin);
+    CGFloat y = destColumnMaxY + YYDefaultRowMargin;
+   
+    attrs.frame = CGRectMake(x, y, width, height);
+    self.columnMaxYarray[destColumnindex] = @(CGRectGetMaxY(attrs.frame));
     
     return attrs;
 }
