@@ -1,0 +1,6 @@
+
+#tform :ios, '6.1'
+pod 'SDWebImage', '~>3.7'
+pod 'MJExtension'
+
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
