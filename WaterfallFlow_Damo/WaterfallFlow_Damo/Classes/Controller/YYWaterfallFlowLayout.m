@@ -18,6 +18,7 @@ static const CGFloat YYDefaultColumnCount = 3;
 @interface YYWaterfallFlowLayout ()
 
 @property (nonatomic, strong) NSMutableArray *columnMaxYarray;
+@property (nonatomic, strong) NSMutableArray *attrsArray;
 
 @end
 @implementation YYWaterfallFlowLayout
@@ -29,8 +30,26 @@ static const CGFloat YYDefaultColumnCount = 3;
     }
     return _columnMaxYarray;
 }
+- (NSMutableArray *)attrsArray {
+    if (!_attrsArray) {
+        _attrsArray = [[NSMutableArray alloc] init];
+    }
+    return _attrsArray;
+}
 
 #pragma mark - 实现内部方法（重置每一列的最大y坐标）
+
+- (CGSize)collectionViewContentSize {
+    CGFloat destColumnMaxY = [self.columnMaxYarray[0] doubleValue];
+    for (int i = 0; i< self.columnMaxYarray.count; i ++) {
+        CGFloat columnMaxY = [self.columnMaxYarray[i] doubleValue];
+        if (columnMaxY > destColumnMaxY) {
+            destColumnMaxY = columnMaxY;
+        }
+    }
+    return CGSizeMake(YYCollectionViewWidth, destColumnMaxY + YYDefaultEdginsets.bottom);
+}
+
 - (void)prepareLayout {
     [super prepareLayout];
     
@@ -38,22 +57,29 @@ static const CGFloat YYDefaultColumnCount = 3;
     for (int i = 0; i< YYDefaultColumnCount; i ++) {
         [self.columnMaxYarray addObject:@(0)];
     }
+    
+    // 当有新的Item 出现需要布局layout的时候才会调用一次
+    [self.attrsArray removeAllObjects];
+    NSInteger count = [self.collectionView numberOfItemsInSection:0];
+    for (int i = 0; i < count; i ++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        UICollectionViewLayoutAttributes *attrs = [self layoutAttributesForItemAtIndexPath:indexPath];
+        [self.attrsArray addObject:attrs];
+    }
 }
-
 /**
  *  说明所有元素最终显示出来的布局属性
  */
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-    
+  
     NSMutableArray *arrM = [NSMutableArray array];
-    
-    NSInteger count = [self.collectionView numberOfItemsInSection:0];
-    for (int i = 0; i< count; i ++) {
+    for (int i = 0; i< self.attrsArray.count; i ++) {
        
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        UICollectionViewLayoutAttributes *attrs = [self layoutAttributesForItemAtIndexPath:indexPath];
-        
-        [arrM addObject:attrs];
+        UICollectionViewLayoutAttributes *attrs = self.attrsArray[i];
+        // 查找屏幕范围内 相交集的Item 才会显示加载其attrs属性
+        if (CGRectIntersectsRect(rect, attrs.frame)) {
+            [arrM addObject:attrs];
+        }
     }
     return arrM;
 }
