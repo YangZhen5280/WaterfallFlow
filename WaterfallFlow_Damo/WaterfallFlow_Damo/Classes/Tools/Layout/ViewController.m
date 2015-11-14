@@ -50,9 +50,12 @@ static NSString *const ID = @"image";
     
     // 创建CollectionView
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:rect collectionViewLayout:layout];
+    
     collectionView.dataSource = self;
     collectionView.delegate = self;
+    
     [collectionView registerNib:[UINib nibWithNibName:@"HMImageCell" bundle:nil] forCellWithReuseIdentifier:ID];
+   
     [self.view addSubview:collectionView];
     self.collectionView = collectionView;
 }

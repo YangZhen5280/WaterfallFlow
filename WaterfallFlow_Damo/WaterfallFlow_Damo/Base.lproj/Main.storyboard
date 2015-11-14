@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Pi-Jf-lSt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Pi-Jf-lSt">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -45,21 +46,35 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9R-Qf-g4d">
-                                        <rect key="frame" x="200" y="144" width="200" height="200"/>
+                                        <rect key="frame" x="200" y="149" width="200" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="9Om-ah-CRT"/>
-                                            <constraint firstAttribute="height" constant="200" id="wAe-eb-x66"/>
+                                            <constraint firstAttribute="width" constant="200" id="6R7-hf-rOL"/>
+                                            <constraint firstAttribute="height" constant="200" id="8T1-2t-CRe"/>
                                         </constraints>
                                         <state key="normal" image="123.png"/>
                                         <connections>
                                             <segue destination="VyG-Zl-Vs5" kind="push" id="KKu-6K-mtA"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQT-00-ruz">
+                                        <rect key="frame" x="200" y="344" width="200" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Dzs-lu-SiX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="名品特卖主会场"/>
+                                        <connections>
+                                            <segue destination="VyG-Zl-Vs5" kind="push" id="Aom-Jo-rQr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="k9R-Qf-g4d" firstAttribute="centerY" secondItem="8GT-KS-RGj" secondAttribute="centerY" id="b0z-l2-gcN"/>
-                                    <constraint firstItem="k9R-Qf-g4d" firstAttribute="centerX" secondItem="8GT-KS-RGj" secondAttribute="centerX" id="ljg-z9-yHa"/>
+                                    <constraint firstItem="k9R-Qf-g4d" firstAttribute="leading" secondItem="nQT-00-ruz" secondAttribute="leading" id="5C2-Ow-ULd"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="k9R-Qf-g4d" secondAttribute="bottom" constant="130" id="F83-rO-HF5"/>
+                                    <constraint firstAttribute="bottom" secondItem="nQT-00-ruz" secondAttribute="bottom" constant="113" id="dHq-UN-21B"/>
+                                    <constraint firstItem="k9R-Qf-g4d" firstAttribute="centerX" secondItem="8GT-KS-RGj" secondAttribute="centerX" id="egN-zZ-1gt"/>
+                                    <constraint firstItem="k9R-Qf-g4d" firstAttribute="trailing" secondItem="nQT-00-ruz" secondAttribute="trailing" id="qyw-tL-D3x"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -85,6 +100,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageButton" destination="k9R-Qf-g4d" id="1R3-dj-eR0"/>
+                        <outlet property="imageHeightConstraint" destination="F83-rO-HF5" id="hTP-Ij-VG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ib-Hp-hQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,4 +193,7 @@
     <resources>
         <image name="123.png" width="566" height="566"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KKu-6K-mtA"/>
+    </inferredMetricsTieBreakers>
 </document>

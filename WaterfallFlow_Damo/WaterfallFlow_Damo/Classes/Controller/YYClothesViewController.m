@@ -77,6 +77,8 @@ static NSString * const reuseIdentifier = @"ClothesCell";
 
 #pragma mark - <YYWaterfallFlowLayoutDelegate>
 - (CGFloat)waterfallLayout:(YYWaterfallFlowLayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexPath withItemWith:(CGFloat)wight {
+    // layout 可以获得indexPath.item
+    // 但是不知道clothes数据模型中对应的---> h 和 w 是多少
     YYClothes *clother = self.clothes[indexPath.item];
     return clother.h * wight / clother.w;
 }

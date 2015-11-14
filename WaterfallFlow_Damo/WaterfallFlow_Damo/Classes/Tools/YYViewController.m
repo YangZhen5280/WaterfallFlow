@@ -14,6 +14,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeightConstraint;
 
 @end
 
@@ -28,6 +29,10 @@
      */
     [self.imageButton setImage:[UIImage circleImageWithName:@"123.png" borderWidth:12.0 borderColor:[UIColor colorWithWhite:1.0 alpha:0.5]] forState:UIControlStateNormal];
     [self startAnimation];
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        self.imageHeightConstraint.constant = 230;
+    }];
 }
 - (void)startAnimation {
 

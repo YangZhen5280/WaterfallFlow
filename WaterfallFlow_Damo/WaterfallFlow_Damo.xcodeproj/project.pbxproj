@@ -31,8 +31,8 @@
 /* Begin PBXFileReference section */
 		3B22F585EF38F5DE1DFF76CD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC693A9B2D484445E9F8E34 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D94C70E21BE78FD30013916B /* YYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYViewController.h; sourceTree = "<group>"; };
-		D94C70E31BE78FD30013916B /* YYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYViewController.m; sourceTree = "<group>"; };
+		D94C70E21BE78FD30013916B /* YYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYViewController.h; path = ../Tools/YYViewController.h; sourceTree = "<group>"; };
+		D94C70E31BE78FD30013916B /* YYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYViewController.m; path = ../Tools/YYViewController.m; sourceTree = "<group>"; };
 		D94C70E51BE790F90013916B /* UIImage+Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Circle.h"; sourceTree = "<group>"; };
 		D94C70E61BE790F90013916B /* UIImage+Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Circle.m"; sourceTree = "<group>"; };
 		D94C70EA1BE7924F0013916B /* 123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 123.png; sourceTree = "<group>"; };
@@ -99,11 +99,11 @@
 			children = (
 				D94C70FC1BE7A35C0013916B /* HMCircleLayout.h */,
 				D94C70FD1BE7A35C0013916B /* HMCircleLayout.m */,
+				D94C71011BE7A35C0013916B /* HMLineLayout.h */,
+				D94C71021BE7A35C0013916B /* HMLineLayout.m */,
 				D94C70FE1BE7A35C0013916B /* HMImageCell.h */,
 				D94C70FF1BE7A35C0013916B /* HMImageCell.m */,
 				D94C71001BE7A35C0013916B /* HMImageCell.xib */,
-				D94C71011BE7A35C0013916B /* HMLineLayout.h */,
-				D94C71021BE7A35C0013916B /* HMLineLayout.m */,
 				D94C71031BE7A35C0013916B /* ViewController.h */,
 				D94C71041BE7A35C0013916B /* ViewController.m */,
 			);
@@ -170,6 +170,8 @@
 				D9CC4C2C1BE6EBCE00048F41 /* YYClothesViewController.h */,
 				D9CC4C2D1BE6EBCE00048F41 /* YYClothesViewController.m */,
 				D9CC4C1B1BE6E61400048F41 /* Main.storyboard */,
+				D94C70E21BE78FD30013916B /* YYViewController.h */,
+				D94C70E31BE78FD30013916B /* YYViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,8 +183,6 @@
 				D94C70EA1BE7924F0013916B /* 123.png */,
 				D94C70E51BE790F90013916B /* UIImage+Circle.h */,
 				D94C70E61BE790F90013916B /* UIImage+Circle.m */,
-				D94C70E21BE78FD30013916B /* YYViewController.h */,
-				D94C70E31BE78FD30013916B /* YYViewController.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";

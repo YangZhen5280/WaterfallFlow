@@ -74,7 +74,9 @@ static const CGFloat YYDefaultColumnCount = 3;
     }
 }
 /**
- *  说明所有元素最终显示出来的布局属性
+ *  由于此方法调用比较频繁，所有所有更新的layout需要再prepareLayout中统一设置完成
+ *  再到次方法中进行设置
+ *  并且仅显示最终显示区域内：所有布局的属性
  */
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
   
